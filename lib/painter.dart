@@ -121,6 +121,7 @@ class _PathHistory {
   void undo() {
     if (!_inDrag) {
       _paths.removeLast();
+      imageContainer = [0,0,0,0];
     }
   }
 
