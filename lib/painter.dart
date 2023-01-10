@@ -122,7 +122,8 @@ class _PathHistory {
 
   void undo() {
     if (!_inDrag) {
-      print('Pontos: ${_paths}');
+      print('Pontos path: ${_paths.last.key}');
+      print('Pontos paint: ${_paths.last.value}');
       _paths.removeLast();
     }
   }
