@@ -64,7 +64,6 @@ class _PainterState extends State<Painter> {
     Offset pos = (context.findRenderObject() as RenderBox)
         .globalToLocal(start.globalPosition);
     widget.painterController._pathHistory.add(pos);
-    print('Pontos: ${widget.painterController._pathHistory._paths}');
     widget.painterController._notifyListeners();
   }
 
@@ -72,13 +71,11 @@ class _PainterState extends State<Painter> {
     Offset pos = (context.findRenderObject() as RenderBox)
         .globalToLocal(update.globalPosition);
     widget.painterController._pathHistory.updateCurrent(pos);
-    print('Pontos: ${widget.painterController._pathHistory._paths}');
     widget.painterController._notifyListeners();
   }
 
   void _onPanEnd(DragEndDetails end) {
     widget.painterController._pathHistory.endCurrent();
-    print('Pontos: ${widget.painterController._pathHistory._paths}');
     widget.painterController._notifyListeners();
   }
 }
@@ -122,7 +119,6 @@ class _PathHistory {
 
   void undo() {
     if (!_inDrag) {
-      print('Pontos path: ${_paths.last.key.toString()}');
       _paths.removeLast();
     }
   }
@@ -139,6 +135,8 @@ class _PathHistory {
       Path path = new Path();
       path.moveTo(startPoint.dx, startPoint.dy);
       print('OffSet: \n X ${startPoint.dx} \n Y ${startPoint.dy}');
+      imageContainer = [startPoint.dx,startPoint.dy,0,0];
+      print('Image Container: $imageContainer');
       _paths.add(new MapEntry<Path, Paint>(path, currentPaint));
     }
   }
@@ -148,6 +146,29 @@ class _PathHistory {
       Path path = _paths.last.key;
       path.lineTo(nextPoint.dx, nextPoint.dy);
       print('OffSet: \n X ${nextPoint.dx} \n Y ${nextPoint.dy}');
+      // Max X 360
+      //Max Y 480
+      //Armazenar o maior ponto de X e de Y presentes
+      //Armazenar o menor ponto de X e de Y presentes
+      //A diferença entre o Maior e o Menor X dá K
+      // A diferença entre o maio e Menor Y dá H
+      //Com X, Y menores, K e H nós podemos desenhar um retangulo que envolve o objeto.
+
+      if(nextPoint.dx < imageContainer[0]){ // se o atual for menor que o gravado, altere
+        imageContainer[0] = nextPoint.dx;
+      }
+      if(nextPoint.dy < imageContainer[1]){ // se o atual for menor que o gravado, altere
+        imageContainer[1] = nextPoint.dy;
+      }
+      if(nextPoint.dx > imageContainer[2]){ // se o atual for maior que o gravado altere
+        K = nextPoint.dx - imageContainer[0];
+        imageContainer[2] = K;
+      }
+      if(nextPoint.dy > imageContainer[3]){ // se o atual for maior que o gravado altere
+        H = nextPoint.dy - imageContainer[1];
+        imageContainer[3] = H;
+      }
+      print('Image Container: $imageContainer');
     }
   }
 
