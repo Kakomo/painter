@@ -147,6 +147,7 @@ class _PathHistory {
     if (_inDrag) {
       Path path = _paths.last.key;
       path.lineTo(nextPoint.dx, nextPoint.dy);
+      print('OffSet: \n X ${nextPoint.dx} \n Y ${nextPoint.dy}');
     }
   }
 
