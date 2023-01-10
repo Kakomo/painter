@@ -75,7 +75,7 @@ class _PainterState extends State<Painter> {
   }
 
   void _onPanEnd(DragEndDetails end) {
-    //widget.painterController._pathHistory.endCurrent();
+    widget.painterController._pathHistory.endCurrent();
     widget.painterController._notifyListeners();
   }
 }
@@ -120,9 +120,8 @@ class _PathHistory {
 
   void undo() {
     if (!_inDrag) {
-      widget.painterController._pathHistory.endCurrent();
       _paths.removeLast();
-      imageContainer = [0,0,0,0];
+
     }
   }
 
