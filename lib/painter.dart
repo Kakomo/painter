@@ -75,7 +75,7 @@ class _PainterState extends State<Painter> {
   }
 
   void _onPanEnd(DragEndDetails end) {
-    widget.painterController._pathHistory.endCurrent();
+    //widget.painterController._pathHistory.endCurrent();
     widget.painterController._notifyListeners();
   }
 }
