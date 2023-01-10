@@ -122,8 +122,7 @@ class _PathHistory {
 
   void undo() {
     if (!_inDrag) {
-      print('Pontos path: ${_paths.last.key}');
-      print('Pontos paint: ${_paths.last.value}');
+      print('Pontos path: ${_paths.last.key.toString()}');
       _paths.removeLast();
     }
   }
@@ -139,6 +138,7 @@ class _PathHistory {
       _inDrag = true;
       Path path = new Path();
       path.moveTo(startPoint.dx, startPoint.dy);
+      print('OffSet: \n X ${startPoint.dx} \n Y ${startPoint.dy}');
       _paths.add(new MapEntry<Path, Paint>(path, currentPaint));
     }
   }
