@@ -97,11 +97,7 @@ class _PainterPainter extends CustomPainter {
 }
 
 class _PathHistory {
-  double X;
-  double Y;
-  double K;
-  double H;
-  List<double> imageContainer = [X,Y,K,H];
+  List<double>? imageContainer;
   List<MapEntry<Path, Paint>> _paths;
   Paint currentPaint;
   Paint _backgroundPaint;
@@ -166,11 +162,11 @@ class _PathHistory {
         imageContainer[1] = nextPoint.dy;
       }
       if(nextPoint.dx > imageContainer[2]){ // se o atual for maior que o gravado altere
-        K = nextPoint.dx - imageContainer[0];
+        double K = nextPoint.dx - imageContainer[0];
         imageContainer[2] = K;
       }
       if(nextPoint.dy > imageContainer[3]){ // se o atual for maior que o gravado altere
-        H = nextPoint.dy - imageContainer[1];
+        double H = nextPoint.dy - imageContainer[1];
         imageContainer[3] = H;
       }
       print('Image Container: $imageContainer');
