@@ -97,7 +97,7 @@ class _PainterPainter extends CustomPainter {
 }
 
 class _PathHistory {
-  List<double>? imageContainer;
+  List<double> imageContainer = [0,0,0,0];
   List<MapEntry<Path, Paint>> _paths;
   Paint currentPaint;
   Paint _backgroundPaint;
