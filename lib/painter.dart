@@ -64,6 +64,7 @@ class _PainterState extends State<Painter> {
     Offset pos = (context.findRenderObject() as RenderBox)
         .globalToLocal(start.globalPosition);
     widget.painterController._pathHistory.add(pos);
+    print('Pontos: ${widget.painterController._pathHistory._paths}');
     widget.painterController._notifyListeners();
   }
 
@@ -71,11 +72,13 @@ class _PainterState extends State<Painter> {
     Offset pos = (context.findRenderObject() as RenderBox)
         .globalToLocal(update.globalPosition);
     widget.painterController._pathHistory.updateCurrent(pos);
+    print('Pontos: ${widget.painterController._pathHistory._paths}');
     widget.painterController._notifyListeners();
   }
 
   void _onPanEnd(DragEndDetails end) {
     widget.painterController._pathHistory.endCurrent();
+    print('Pontos: ${widget.painterController._pathHistory._paths}');
     widget.painterController._notifyListeners();
   }
 }
@@ -119,6 +122,7 @@ class _PathHistory {
 
   void undo() {
     if (!_inDrag) {
+      print('Pontos: ${_paths}');
       _paths.removeLast();
     }
   }
