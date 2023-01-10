@@ -120,6 +120,7 @@ class _PathHistory {
 
   void undo() {
     if (!_inDrag) {
+      widget.painterController._pathHistory.endCurrent();
       _paths.removeLast();
       imageContainer = [0,0,0,0];
     }
