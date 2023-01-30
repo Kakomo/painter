@@ -162,11 +162,11 @@ class _PathHistory {
       if(nextPoint.dy < imageContainer[1]){ // se o atual for menor que o gravado, altere
         imageContainer[1] = nextPoint.dy;
       }
-      if(nextPoint.dx > imageContainer[2]){ // se o atual for maior que o gravado altere
+      if(nextPoint.dx - imageContainer[0]> imageContainer[2]){ // se o atual for maior que o gravado altere
         double K = nextPoint.dx - imageContainer[0];
         imageContainer[2] = K;
       }
-      if(nextPoint.dy > imageContainer[3]){ // se o atual for maior que o gravado altere
+      if(nextPoint.dy - imageContainer[1]> imageContainer[3]){ // se o atual for maior que o gravado altere
         double H = nextPoint.dy - imageContainer[1];
         imageContainer[3] = H;
       }
