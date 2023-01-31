@@ -5,7 +5,7 @@ import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui';
 import 'package:provider/provider.dart';
-import '../objects/solid_residue_type.dart';
+import 'package:findu_lixo/objects/solid_residue_type.dart';
 
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter/widgets.dart' hide Image;
