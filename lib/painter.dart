@@ -83,10 +83,10 @@ class _PainterState extends State<Painter> {
     widget.painterController._pathHistory.endCurrent();
     widget.painterController._notifyListeners();
     print('X do ultimo Objeto: ${Provider.of<ImageObjects>(context, listen: false).imageObjects.last.X}');
-    Provider.of<ImageObjects>(context, listen: false).imageObjects.last.X = imageContainer[0];
-    Provider.of<ImageObjects>(context, listen: false).imageObjects.last.Y = imageContainer[1];
-    Provider.of<ImageObjects>(context, listen: false).imageObjects.last.K = imageContainer[2];
-    Provider.of<ImageObjects>(context, listen: false).imageObjects.last.H = imageContainer[3];
+    //Provider.of<ImageObjects>(context, listen: false).imageObjects.last.X = imageContainer[0];
+    //Provider.of<ImageObjects>(context, listen: false).imageObjects.last.Y = imageContainer[1];
+    //Provider.of<ImageObjects>(context, listen: false).imageObjects.last.K = imageContainer[2];
+    //Provider.of<ImageObjects>(context, listen: false).imageObjects.last.H = imageContainer[3];
   }
 }
 
