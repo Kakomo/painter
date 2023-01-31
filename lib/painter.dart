@@ -82,11 +82,15 @@ class _PainterState extends State<Painter> {
   void _onPanEnd(DragEndDetails end) {
     widget.painterController._pathHistory.endCurrent();
     widget.painterController._notifyListeners();
+    
+    Provider.of<ImageObjects>(context, listen: false).imageObjects.last.X = imageContainer[0];
+    Provider.of<ImageObjects>(context, listen: false).imageObjects.last.Y = imageContainer[1];
+    Provider.of<ImageObjects>(context, listen: false).imageObjects.last.K = imageContainer[2];
+    Provider.of<ImageObjects>(context, listen: false).imageObjects.last.H = imageContainer[3];
     print('X do ultimo Objeto: ${Provider.of<ImageObjects>(context, listen: false).imageObjects.last.X}');
-    //Provider.of<ImageObjects>(context, listen: false).imageObjects.last.X = imageContainer[0];
-    //Provider.of<ImageObjects>(context, listen: false).imageObjects.last.Y = imageContainer[1];
-    //Provider.of<ImageObjects>(context, listen: false).imageObjects.last.K = imageContainer[2];
-    //Provider.of<ImageObjects>(context, listen: false).imageObjects.last.H = imageContainer[3];
+    print('Y do ultimo Objeto: ${Provider.of<ImageObjects>(context, listen: false).imageObjects.last.Y}');
+    print('K do ultimo Objeto: ${Provider.of<ImageObjects>(context, listen: false).imageObjects.last.K}');
+    print('H do ultimo Objeto: ${Provider.of<ImageObjects>(context, listen: false).imageObjects.last.H}');
   }
 }
 
