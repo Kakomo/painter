@@ -4,6 +4,7 @@ library painter;
 import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui';
+import 'package:provider/provider.dart';
 
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter/widgets.dart' hide Image;
@@ -77,6 +78,11 @@ class _PainterState extends State<Painter> {
   void _onPanEnd(DragEndDetails end) {
     widget.painterController._pathHistory.endCurrent();
     widget.painterController._notifyListeners();
+    print('X do ultimo Objeto: ${Provider.of<ImageObjects>(context, listen: false).imageObjects.last.X}');
+    Provider.of<ImageObjects>(context, listen: false).imageObjects.last.X = imageContainer[0];
+    Provider.of<ImageObjects>(context, listen: false).imageObjects.last.Y = imageContainer[1];
+    Provider.of<ImageObjects>(context, listen: false).imageObjects.last.K = imageContainer[2];
+    Provider.of<ImageObjects>(context, listen: false).imageObjects.last.H = imageContainer[3];
   }
 }
 
