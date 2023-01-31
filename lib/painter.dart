@@ -5,11 +5,15 @@ import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui';
 import 'package:provider/provider.dart';
+import '../objects/solid_residue_type.dart';
 
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter/widgets.dart' hide Image;
 
 /// A very simple widget that supports drawing using touch.
+
+List<double> imageContainer = [0,0,0,0];
+
 class Painter extends StatefulWidget {
   final PainterController painterController;
 
@@ -103,7 +107,7 @@ class _PainterPainter extends CustomPainter {
 }
 
 class _PathHistory {
-  List<double> imageContainer = [0,0,0,0];
+ 
   List<MapEntry<Path, Paint>> _paths;
   Paint currentPaint;
   Paint _backgroundPaint;
